@@ -9,6 +9,7 @@ import { CandidateModule } from './entities/candidate/candidate.module';
 import { CityElectionResultModule } from './entities/city-election-result/city-election-result.module';
 import { CountyElectionResultModule } from './entities/county-election-result/county-election-result.module';
 import { StateElectionResultModule } from './entities/state-election-result/state-election-result.module';
+import { TilesModule } from './entities/tiles/tiles.module';
 import { dataSourceOptions } from './config/typeorm.config';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
@@ -26,6 +27,7 @@ import { APP_GUARD } from '@nestjs/core';
     CityElectionResultModule,
     CountyElectionResultModule,
     StateElectionResultModule,
+    TilesModule,
   ],
   providers: [
     {
