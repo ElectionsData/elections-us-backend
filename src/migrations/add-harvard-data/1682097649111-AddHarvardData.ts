@@ -92,7 +92,9 @@ export class AddHarvardData1682097649111 implements MigrationInterface {
 
           await queryRunner.query(
             `INSERT INTO state_election_result (election_id, state_id, winner_id, total_votes, candidate_votes)
-            SELECT ${qElectionId}, ${qStateId}, ${qWinnerId}, ${winnerRow.totalvotes}, json_build_object('a', 'b')`,
+            SELECT ${qElectionId}, ${qStateId}, ${qWinnerId}, ${winnerRow.totalvotes}, '{"":""}'::jsonb
+            EXCEPT
+            SELECT election_id, state_id, winner_id, total_votes, candidate_votes FROM state_election_result`,
           );
 
           stateElectionResults.state = row.state;
