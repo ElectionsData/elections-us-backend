@@ -61,17 +61,18 @@ export class AddHarvardData1682097649111 implements MigrationInterface {
       }
 
       // Add unique election to db
-      await (async function addStateElectionResult() {
-        if (!elections.has(row.office + row.year)) {
-          await queryRunner.query(
-            `INSERT INTO election (name, type, year)
+      if (!elections.has(row.office + row.year)) {
+        await queryRunner.query(
+          `INSERT INTO election (name, type, year)
             SELECT 'U.S. President ${row.year}', 'Federal elections', ${row.year}
             EXCEPT
             SELECT name, type, year FROM election`,
-          );
-          elections.add(row.office + row.year);
-        }
+        );
+        elections.add(row.office + row.year);
+      }
 
+      // Add state election result to db
+      await (async function addStateElectionResult() {
         if (
           stateElectionResults.state == row.state &&
           stateElectionResults.year == row.year
