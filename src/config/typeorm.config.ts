@@ -9,6 +9,7 @@ export const dataSourceOptions: DataSourceOptions = {
   database: process.env.DB_NAME || 'elections_us',
   entities: [__dirname + '/../**/*.entity{.ts,.js}'],
   migrations: [__dirname + '/../migrations/**/*{.ts,.js}'],
+  migrationsRun: true,
 };
 
 const dataSource = new DataSource(dataSourceOptions);
