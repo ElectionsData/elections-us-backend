@@ -8,9 +8,6 @@ export class State {
   @Column()
   name: string;
 
-  @Column()
-  electoralVotes: number;
-
   @Column('geometry', { spatialFeatureType: 'MultiPolygon', srid: 4326 })
   boundary: any;
 }

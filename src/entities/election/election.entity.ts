@@ -15,8 +15,8 @@ export class Election {
   type: string;
 
   @Column()
-  startDate: Date;
+  start_date: Date;
 
   @Column()
-  endDate: Date;
+  end_date: Date;
 }

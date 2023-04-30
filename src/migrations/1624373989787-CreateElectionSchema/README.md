@@ -1,0 +1,1 @@
+This migration creates tables, keys and extensions in database according to the `database-schema.png` located in the `docs` folder of the project
